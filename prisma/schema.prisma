@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  PARTICIPANT
+  ORGANIZER
+  ADMIN
+}
+
+enum CertStatus {
+  PENDING
+  APPROVED
+  DENIED
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String
+  email         String         @unique
+  password      String
+  role          Role           @default(PARTICIPANT)
+  createdAt     DateTime       @default(now())
+
+  registrations Registration[]
+  fests         Fest[]         @relation("OrganizerFests")
+}
+
+model Fest {
+  id            String         @id @default(cuid())
+  title         String
+  description   String?
+  date          DateTime?
+  category      String?
+  organizerId   String
+  organizer     User           @relation("OrganizerFests", fields: [organizerId], references: [id])
+  createdAt     DateTime       @default(now())
+
+  registrations Registration[]
+  templates     Template[]
+}
+
+model Registration {
+  id          String       @id @default(cuid())
+  userId      String
+  festId      String
+  status      CertStatus   @default(PENDING)
+  createdAt   DateTime     @default(now())
+
+  user        User         @relation(fields: [userId], references: [id])
+  fest        Fest         @relation(fields: [festId], references: [id])
+  certificate Certificate?
+
+  @@unique([userId, festId])
+}
+
+model Template {
+  id        String   @id @default(cuid())
+  festId    String
+  name      String
+  fileUrl   String
+  createdAt DateTime @default(now())
+
+  fest      Fest     @relation(fields: [festId], references: [id])
+}
+
+model Certificate {
+  id              String       @id @default(cuid())
+  registrationId  String       @unique
+  certUrl         String?
+  qrCode          String?
+  issuedAt        DateTime?
+  revoked         Boolean      @default(false)
+
+  registration    Registration @relation(fields: [registrationId], references: [id])
+}
