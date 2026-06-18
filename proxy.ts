@@ -5,7 +5,7 @@ export default auth((req) => {
   const { pathname } = req.nextUrl;
   const user = req.auth?.user as any;
 
-  if (pathname.startsWith("/organizer") && user?.role !== "ORGANIZER" && user?.role !== "ADMIN") {
+  if (pathname.startsWith("/organiser") && user?.role !== "ORGANIZER" && user?.role !== "ADMIN") {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
