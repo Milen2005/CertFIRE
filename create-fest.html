@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CertFIRE - Create Fest</title>
+    <!-- Google Fonts: Outfit and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Host a new festival on CertFIRE. Provide details, set parameters, and publish events easily.">
+</head>
+<body class="create-fest-page">
+
+    <!-- Header / Navigation Bar -->
+    <header class="main-header scrolled animate-fade-in-down">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="index.html" class="logo" id="create-logo">
+                    Cert<span>FIRE</span>
+                </a>
+                <nav class="nav-links nav-links-create">
+                </nav>
+            </div>
+            
+            <div class="header-actions">
+                <a href="#" class="register-btn btn-gradient-purple" id="btn-create-event-header">Create Event</a>
+                
+                <!-- Notification Bell Icon -->
+                <button class="nav-icon-btn" id="btn-notification" aria-label="Notifications">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Profile Avatar Icon -->
+                <button class="profile-avatar-btn" id="btn-profile" aria-label="Profile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="create-fest-container">
+        
+        <!-- Title & Subtitle Banner -->
+        <section class="create-title-section animate-reveal">
+            <h1 class="page-title" id="create-heading">Create Fest</h1>
+            <p class="page-subtitle" id="create-desc">
+                Design your next high-octane tech festival. Fill in the details to launch your event into the CertFIRE ecosystem.
+            </p>
+        </section>
+
+        <!-- Create Fest Form -->
+        <form id="form-create-fest" class="fest-form-grid">
+            
+            <!-- SECTION 1: Basic Information -->
+            <fieldset class="form-card card-border-cyan scroll-reveal" id="section-basic-info">
+                <legend class="form-card-header">
+                    <span class="form-card-icon text-cyan">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <h2>Basic Information</h2>
+                </legend>
+
+                <div class="form-group">
+                    <label for="event-title">Event Title</label>
+                    <input type="text" id="event-title" placeholder="e.g. CyberNight Hackathon 2024" required class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="event-category">Category</label>
+                    <div class="select-wrapper">
+                        <select id="event-category" required class="form-input">
+                            <option value="hackathon" selected>Hackathon</option>
+                            <option value="music-fest">Music Fest</option>
+                            <option value="art-expo">Art Expo</option>
+                            <option value="conference">Conference</option>
+                            <option value="webinar">Webinar</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="event-description">Description</label>
+                    <textarea id="event-description" placeholder="Describe the energy, the challenges, and the rewards..." rows="5" required class="form-input"></textarea>
+                </div>
+
+                <!-- Banner Image Upload with Action Buttons on Top -->
+                <div class="form-group">
+                    <div class="upload-header-row">
+                        <label>Banner Image</label>
+                        <!-- Floating form actions next to label -->
+                        <div class="form-actions">
+                            <button type="button" class="btn-action-secondary" id="btn-save-draft">Save Draft</button>
+                            <button type="submit" class="btn-action-primary ripple" id="btn-publish-event">Publish Event</button>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-dropzone" id="banner-dropzone">
+                        <div class="upload-mockup-bg"></div>
+                        <div class="upload-content">
+                            <span class="upload-icon text-cyan">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <p class="upload-text">Click to upload banner</p>
+                            <p class="upload-subtext">Recommended: 1920x1080px (Max 5MB)</p>
+                            <input type="file" id="banner-file-input" accept="image/*" class="file-input-hidden">
+                        </div>
+                        <!-- Preview wrapper -->
+                        <div class="upload-preview-container" id="upload-preview-container">
+                            <img src="" alt="Banner Preview" id="upload-preview-img">
+                            <button type="button" class="remove-preview-btn" id="btn-remove-preview" aria-label="Remove Image">&times;</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 2: Event Details -->
+            <fieldset class="form-card card-border-purple scroll-reveal" id="section-event-details">
+                <legend class="form-card-header">
+                    <span class="form-card-icon text-purple">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <h2>Event Details</h2>
+                </legend>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-date">Date</label>
+                        <input type="date" id="event-date" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-deadline">Registration Deadline</label>
+                        <input type="date" id="event-deadline" required class="form-input">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-start-time">Start Time</label>
+                        <input type="time" id="event-start-time" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-end-time">End Time</label>
+                        <input type="time" id="event-end-time" required class="form-input">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="event-venue">Venue / Link</label>
+                    <input type="text" id="event-venue" placeholder="Physical location or Virtual Meeting link" required class="form-input">
+                </div>
+            </fieldset>
+
+            <!-- SECTION 3: Participation Details -->
+            <fieldset class="form-card card-border-gold scroll-reveal" id="section-participation-details">
+                <legend class="form-card-header">
+                    <span class="form-card-icon text-gold">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <h2>Participation Details</h2>
+                </legend>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-max-participants">Max Participants</label>
+                        <input type="number" id="event-max-participants" placeholder="500" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-fee">Registration Fee (INR)</label>
+                        <input type="text" id="event-fee" placeholder="0" class="form-input">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="event-eligibility">Eligibility Criteria</label>
+                    <textarea id="event-eligibility" placeholder="e.g. Open to all undergrad students globally..." rows="3" class="form-input"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 4: Contact Information -->
+            <fieldset class="form-card card-border-teal scroll-reveal" id="section-contact-info">
+                <legend class="form-card-header">
+                    <span class="form-card-icon text-teal">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <h2>Contact Information</h2>
+                </legend>
+
+                <div class="form-group">
+                    <label for="organizer-name">Organizer Name</label>
+                    <input type="text" id="organizer-name" placeholder="John Doe or Organization Name" required class="form-input">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="organizer-email">Email Address</label>
+                        <input type="email" id="organizer-email" placeholder="contact@certfire.io" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="organizer-phone">Phone Number</label>
+                        <input type="tel" id="organizer-phone" placeholder="+1 (555) 000-0000" class="form-input">
+                    </div>
+                </div>
+            </fieldset>
+
+        </form>
+
+        <!-- Inline Floating Alert Messages -->
+        <div class="alert-toast-container" id="alert-container"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="section-container footer-grid">
+            <!-- Footer Brand Column -->
+            <div class="footer-brand-col">
+                <a href="index.html" class="logo footer-logo" id="footer-logo">
+                    Cert<span>FIRE</span>
+                </a>
+                <p class="footer-desc">The definitive platform for verified festival certificates and event management.</p>
+            </div>
+
+            <!-- Footer Columns -->
+            <div class="footer-links-col">
+                <h4 class="footer-title">Platform</h4>
+                <ul>
+                    <li><a href="index.html#fests-section" id="footer-platform-explore">Explore Events</a></li>
+                    <li><a href="#" id="footer-platform-lineup">Lineup Details</a></li>
+                    <li><a href="#" id="footer-platform-organize">Organize Fest</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Resources</h4>
+                <ul>
+                    <li><a href="#" id="footer-res-support">Contact Support</a></li>
+                    <li><a href="#" id="footer-res-assets">Brand Assets</a></li>
+                    <li><a href="#" id="footer-res-api">API Docs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-title">Legal</h4>
+                <ul>
+                    <li><a href="#" id="footer-legal-tos">Terms of Service</a></li>
+                    <li><a href="#" id="footer-legal-privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom section-container">
+            <p class="copyright">&copy; 2026 CertFIRE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
