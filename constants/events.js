@@ -1,0 +1,53 @@
+export const PREDEFINED_EVENTS = [
+  {
+    id: 'cyber-summit',
+    title: 'Cyber Summit 2024',
+    category: 'TECH',
+    categoryClass: 'tech',
+    dateMonth: 'OCT',
+    dateDay: '25',
+    location: 'San Francisco, CA - Hybrid Event',
+    image: '/assets/cyber_summit.png',
+    description: 'Join the ultimate gathering of cybersecurity professionals, developers, and tech enthusiasts. Deep dive into interactive secure coding environments, live red-team vs. blue-team simulation setups, emerging cloud security methodologies, and networking assemblies with elite security professionals.\n\nLearn modern defensive techniques directly from industry veterans and walk away with verifiable digital credentials shareable on your career profiles.',
+    timeRange: '09:00 AM - 05:00 PM',
+    deadline: 'Oct 20, 2024',
+    seats: '1,000 Seats',
+    fee: 'Free Entry',
+    eligibility: 'Open to all students and tech professionals',
+    organizer: 'CertFIRE Tech Network'
+  },
+  {
+    id: 'neon-rhythms',
+    title: 'Neon Rhythms',
+    category: 'MUSIC',
+    categoryClass: 'music-fest',
+    dateMonth: 'NOV',
+    dateDay: '05',
+    location: 'Austin, TX - On-site',
+    image: '/assets/neon_rhythms.png',
+    description: 'Get ready for an electric night of rock, indie alternative, and synth-wave frequencies. Featuring live modular-synth stage setups, glowing laser projection tracks, and Austin\'s best food assemblies.\n\nRegister to secure your exclusive concert pass and collect a high-octane verified event certificate to record your festival presence.',
+    timeRange: '06:00 PM - 11:30 PM',
+    deadline: 'Nov 01, 2024',
+    seats: '2,500 Seats',
+    fee: '₹2,000 INR',
+    eligibility: 'All music lovers welcome (18+)',
+    organizer: 'Austin Beats Group'
+  },
+  {
+    id: 'digital-motion',
+    title: 'Digital Motion',
+    category: 'ART',
+    categoryClass: 'art-expo',
+    dateMonth: 'DEC',
+    dateDay: '12',
+    location: 'Tokyo, JP - Virtual',
+    image: '/assets/digital_motion.png',
+    description: 'Step into the virtual portal of contemporary dance fused with interactive graphic light projection mappings and 3D environment captures. This experimental showcase coordinates physical movement with real-time digital rendering systems.\n\nEnjoy panels with motion graphic designers and dancers detailing the integration of digital media in performative choreography.',
+    timeRange: '04:00 PM - 07:30 PM',
+    deadline: 'Dec 10, 2024',
+    seats: '5,000 Virtual Seats',
+    fee: '₹800 INR',
+    eligibility: 'Open globally to all art/tech fans',
+    organizer: 'Tokyo Motion Lab'
+  }
+];
