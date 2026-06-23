@@ -28,6 +28,7 @@ model User {
 
   registrations Registration[]
   fests         Fest[]         @relation("OrganizerFests")
+  auditLogs AuditLog[]
 }
 
 model Fest {
@@ -77,4 +78,14 @@ model Certificate {
   revoked         Boolean      @default(false)
 
   registration    Registration @relation(fields: [registrationId], references: [id])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  action    String
+  details   String?
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
 }
